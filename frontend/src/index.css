@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10+Charted&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Play:wght@400;700&family=Rubik+Mono+One&display=swap');
+
+
+body {
+  margin: 0;
+  font-family: "Play", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+* , *:before , *:after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

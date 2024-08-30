@@ -1,0 +1,2 @@
+// get cors error when used socket.io
+1. in frontend metion transports -> ['websocket']

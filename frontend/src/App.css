@@ -1,0 +1,537 @@
+.container {
+  width: 55%;
+  padding: 0 2rem;
+  gap: 15px;
+  position: relative;
+ 
+}
+
+
+
+.players-killedPiece{
+  flex-basis: 24%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: repeat(2 , 1fr);
+  gap: 25px;
+}
+
+.players-killedPiece > div{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+
+.black-piece,
+.white-piece {
+  padding: 0.3rem .8rem;
+  overflow: auto;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  font-size: 50px;
+  background-color: rgb(203, 171, 122);
+  height: 80%;
+  width: 90%;
+  box-shadow: rgb(203, 171, 122) 3px 3px 6px 0px inset, rgba(0, 0, 0, 0.2) -3px -3px 6px 1px inset;
+}
+
+.white-piece {
+  color:#fff;
+}
+
+.black-piece{
+  color: #242424;
+
+}
+
+.btns {
+  position: absolute;
+  padding: 0.4rem;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.btns button {
+  border-radius: 50%;
+  background: blue;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: gray;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 75px);
+  border-radius:8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex:1;
+}
+
+/* rotate the board when its black piece */
+.rotate-board.board{
+  transform: rotateX(180deg);
+}
+
+.rotate-board > .grid-item{
+  transform: rotateX(180deg);
+
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cbab7a;
+  cursor: pointer;
+  font-size: 65px;
+  position: relative;
+  color:#fff;
+}
+
+
+.grid-item img {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+}
+
+.black-cells {
+  background-color: #7f5837;
+}
+
+.black{
+  color: #3d3e3d;
+}
+
+.active {
+   font-size: 80px;
+}
+.active span{
+  margin-top: -20px;
+}
+
+.font-size {
+  font-size: 40px;
+}
+
+
+
+
+.chat{
+  position: absolute;
+  right:50px;
+  z-index:2;
+  bottom:80px;
+}
+
+.chat-icon{
+
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: none;
+  border:none;
+  cursor: pointer;
+}
+
+.chat-icon span{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right:-5px;
+  z-index:2;
+  background-color: red;
+  color: #fff;
+  padding: .8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+button:focus , input:focus{
+  outline :none
+}
+
+.chat-icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.chat-box{
+  position: absolute;
+  bottom:90px;
+  right:10px;
+  z-index:-1;
+  width: 300px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  visibility: hidden;
+  transition: .1s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.open-box.chat-box{
+  visibility: visible;
+}
+
+.chat-box > div:first-child{
+  overflow: auto;
+  flex:1;
+  padding: 1rem 1.2rem;
+}
+
+.messages{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap:20px;
+}
+
+.messages > div{
+  padding: .3rem .6rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 5px;
+}
+
+
+
+.you-message{
+  align-self: flex-end;
+  background-color: #75b4d5;
+  color: #fff;
+}
+
+.opponent-message{
+  align-self: flex-start;
+  background-color: rgb(244, 237, 237);
+}
+.send-msg{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  /* border-radius: 0 0 10px 10px; */
+  border-top: 1px solid rgb(230, 225, 225);
+  padding: .3rem .2rem;
+  height: 50px;
+  background-color: #fff;
+
+}
+
+.send-msg input{
+  width: 100%;
+  padding: .8rem .5rem;
+  border:none;
+  
+  
+}
+
+.send-msg button{
+  border:none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .6rem;
+
+
+}
+
+
+.icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.game{
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding: .3rem 2rem;
+  height: 100vh;
+}
+
+
+/* show icons when turn is changeing */
+.your-turn{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right:-20px;
+  bottom:10px;
+  animation: 1s arrowAnimationRight infinite;
+}
+
+.opponent-turn{
+  position: absolute;
+  left:50px;
+  top:10px;
+  width: 50px;
+  height: 50px;
+  transform:scaleX(-1);
+  animation: 1s arrowAnimationLeft infinite;
+
+}
+
+@keyframes arrowAnimationLeft {
+  0%{
+    left : -30px;
+  }100%{
+    left : -20px;
+  }
+}
+
+@keyframes arrowAnimationRight {
+  0%{
+    right : -30px;
+  }100%{
+    right : -20px;
+  }
+}
+
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.history{
+  position: absolute;
+  right: 70px;
+  top:100px;
+  padding: .5rem .8rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap:25px;
+}
+
+.head-history{
+  font-size: 25px;
+}
+
+.history-data{
+  max-height: 50vh;
+  width: 90%;
+  overflow: auto;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: repeat(2 , 1fr);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: auto;
+}
+.history-data > div h2{
+  padding: .5rem ;
+  font-size: 20px;  
+  border-bottom: 1px solid rgb(213, 208, 208);
+  margin-bottom: 8px;
+  position: sticky;
+  top:0;
+  background-color: #fff;
+}
+
+.history-data > div:first-child{
+  border-right: 1px solid rgb(213, 208, 208);
+}
+
+.history-data > div div{
+  padding: .3rem;
+}
+
+
+.players-container{
+  width: 20%;
+  font-size: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.players-container div{
+  border: 1px solid black;
+}
+
+.dailog-game-status{
+  text-align: center;
+  padding: .3rem .8rem;
+  
+}
+
+.dailog-game-status  h3 span{
+   font-size: 80px;
+}
+
+.game-over{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:20px;
+}
+
+.game-over > div:first-child{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  gap:20px;
+}
+
+.game-over > div:first-child span{
+  font-size: 150px;
+  margin-top: -40px;
+  display: inline-block;
+}
+
+.game-over button{
+  padding: .8rem 1rem;
+  border-radius: 5px;
+  border:none;
+  background-color:#7f5837;
+  color:#fff;
+  font-size: 19px;
+}
+.game-over p{
+  font-size: 19px;
+  margin-top: -20px;
+}
+
+
+.gameEnd-button{
+  position: absolute;
+  top:20px;
+  right:30px;
+  padding: .5rem .9rem;
+  border:4px solid rgb(21, 117, 186);
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+
+.home-container{
+  height: 100vh;
+  display: flex;
+}
+
+
+.home-container img{
+  width: fit-content;
+  object-position: left;
+}
+
+.players-count-display{
+  display: flex;
+  gap:20px;
+  justify-content: flex-end;
+  padding: 1.5rem 3rem;
+  font-size: 17px;
+}
+
+
+.home{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap:20%;
+}
+
+.home-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:50px;
+
+  
+}
+
+.home-card > div{
+  width: 40%;
+  padding: 4rem 1rem 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:25px;
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #fff;
+
+}
+
+.home-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  color : rgb(76, 74, 74)
+
+}
+
+.home button{
+  width: 80%;
+  height: 6vh;
+  font-size: 19px;
+  border-radius: 5px;
+  border:none;
+  background-color: #fff;
+  background-color: #eb9e36;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.waiting-player{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+
+
+}
+
+.waiting-player button{
+  padding: 1rem 1.5rem;
+  position: absolute;
+  top:3rem;
+  right:3rem;
+  border:4px solid rgb(21, 117, 186);
+  background-color: transparent;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+
+}
+.waiting-player > div{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
+  height: 10rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

@@ -5,7 +5,9 @@ import { Home } from "./Components/home";
 import { Game } from "./Components/game";
 
 
-const socket = io("http://localhost:4000", {
+const backendURL = process.env.REACT_APP_BACKEND_URL;
+
+const socket = io(backendURL, {
   transports: ["websocket"],
 });
 
